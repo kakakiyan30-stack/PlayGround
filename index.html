@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#10100f">
+<title>ASHENFIELD — Relic Run</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90' fill='%23d9b66d'%3E✦%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="game-shell">
+  <canvas id="game" aria-label="Ashenfield game arena"></canvas>
+  <div class="vignette"></div>
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark">✦</div><div><div class="brand-name">ASHENFIELD</div><div class="brand-sub">THE HOLLOW MARCH</div></div></div>
+    <div class="run-stats"><div class="stat"><span class="stat-label">SURVIVED</span><strong id="clock">00:00</strong></div><div class="stat"><span class="stat-label">KILLS</span><strong id="kills">0</strong></div><div class="stat"><span class="stat-label">WAVE</span><strong id="wave">I</strong></div></div>
+    <div class="top-actions"><button id="inventory-btn" class="icon-btn" aria-label="Open inventory">▣ <span>INVENTORY</span><kbd>I</kbd></button><button id="pause-btn" class="icon-btn" aria-label="Pause">Ⅱ <kbd>ESC</kbd></button></div>
+  </header>
+  <section class="hero-hud"><div class="hero-name"><span class="class-icon">♜</span><div><b>WANDERER</b><small>Level <span id="level">1</span> · Ashen Exile</small></div></div><div class="bars"><div class="bar hp"><span id="hp-fill"></span><label>VITALITY <b id="hp-text">100 / 100</b></label></div><div class="bar xp"><span id="xp-fill"></span><label>EXPERIENCE <b id="xp-text">0 / 20</b></label></div></div></section>
+  <aside class="right-rail"><div class="rail-title">EQUIPPED <span>✦</span></div><div id="gear-slots" class="gear-slots"></div><button id="open-bag" class="bag-button">OPEN SATCHEL <kbd>I</kbd></button><div class="relic-note"><i>“</i><span>The dead leave<br>more than bones.</span></div></aside>
+  <div class="combat-feed" id="feed"></div>
+  <div class="pickup-prompt" id="pickup-prompt"></div>
+  <div class="bottom-hint"><span class="keycap">WASD</span> MOVE <i>·</i> <span class="keycap">SPACE</span> DASH <i>·</i> AUTOCAST <i>·</i> GATHER THE FALLEN</div>
+  <div id="modal-layer" class="modal-layer">
+    <section class="modal start-modal" id="start-modal"><div class="eyebrow">A SURVIVOR'S TALE</div><h1>THE HOLLOW<br><em>MARCH</em></h1><p>Night swallows the old road. Take what the dead carry.<br>Last as long as you can.</p><div class="start-art">✦</div><button class="primary-btn" id="start-btn">ENTER THE MARCH <span>→</span></button><div class="start-foot">WASD TO MOVE <i>·</i> SPACE TO DASH <i>·</i> YOUR WEAPON STRIKES ON ITS OWN</div></section>
+    <section class="modal pause-modal hidden" id="pause-modal"><div class="eyebrow">THE MARCH HOLDS ITS BREATH</div><h2>PAUSED</h2><p>Your run waits in the dark.</p><button class="primary-btn" id="resume-btn">RETURN TO BATTLE <span>→</span></button></section>
+    <section class="modal level-modal hidden" id="level-modal"><div class="eyebrow">A MOMENT OF CLARITY</div><h2>POWER AWAKENS</h2><p>Choose an upgrade for this run.</p><div id="upgrade-options" class="upgrade-options"></div></section>
+    <section class="modal end-modal hidden" id="end-modal"><div class="eyebrow">THE ROAD CLAIMS ANOTHER</div><h2 id="end-title">FALLEN</h2><p id="end-copy">The Hollow March remembers.</p><div class="run-summary" id="run-summary"></div><button class="primary-btn" id="again-btn">TRY AGAIN <span>→</span></button></section>
+  </div>
+  <div id="inventory-panel" class="inventory-panel hidden"><div class="panel-head"><div><div class="eyebrow">WHAT THE DEAD LEFT BEHIND</div><h2>SATCHEL</h2></div><button id="close-bag" class="close-btn">×</button></div><div class="inventory-columns"><div><h3>WORN RELICS</h3><div id="inventory-gear" class="inventory-gear"></div><div class="stat-sheet" id="stat-sheet"></div></div><div><h3>YOUR FINDS <span id="bag-count">0 / 12</span></h3><div id="inventory-list" class="inventory-list"></div></div></div><div class="panel-foot">CLICK A FIND TO EQUIP IT <i>·</i> REPLACED GEAR IS LOST TO THE DUST</div></div>
+  <div class="toast" id="toast"></div>
+  <div id="touch-controls" class="touch-controls"><div id="stick-zone" class="stick-zone"><div id="stick" class="stick"></div></div><button id="dash-touch">DASH</button></div>
+</main><script src="game.js"></script>
+</body></html>
